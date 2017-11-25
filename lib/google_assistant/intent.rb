@@ -32,6 +32,10 @@ module GoogleAssistant
       intents[StandardIntents::PERMISSION] = block
     end
 
+    def custom(name, &block)
+      intents[name] = block
+    end
+
     def call
       block = intents[intent_string]
       return if block.nil?
